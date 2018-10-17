@@ -1,0 +1,23 @@
+server:
+  port: 9200
+
+eureka:
+  instance:
+    hostname: configserver
+  client:
+    service-url:
+      defaultZone: http://admin:123@cluster1:9001/eureka/,http://admin:123@cluster2:9002/eureka/,http://admin:123@cluster3:9003/eureka/
+
+spring:
+  application:
+    name: config-center
+  security:
+    user:
+      name: admin
+      password: 123
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/eric20180825/config-center.git
+          search-paths: config-center/bank-pay

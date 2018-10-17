@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="config-center" />
+        <module name="config-client" />
         <module name="provider-bankapi" />
         <module name="register-center" />
       </profile>

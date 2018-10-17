@@ -1,0 +1,34 @@
+server:
+  port: 9300
+
+spring:
+  application:
+    name: config-client
+  security:
+    user:
+      name: admin
+      password: 123
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:9200
+      #替换成服务名.没搞通，不知道啥原因
+#      discovery:
+#        enabled: true
+#        service-id: http://admin:123@configcenter:9200
+
+# 好像2.0以上版本才需要开启此刷新配置，且访问地址成了/actuator/refresh.postMan刷新要设置头部 contentType:application/json
+#实际 中不可能 手动点击刷新地址，到时想办法用githook监听代替
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+eureka:
+  instance:
+    hostname: configclient
+  client:
+    service-url:
+      defaultZone: http://admin:123@cluster1:9001/eureka/,http://admin:123@cluster2:9002/eureka/,http://admin:123@cluster3:9003/eureka/

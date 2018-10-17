@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>register-center</module>
+        <module>config-center</module>
+        <module>config-client</module>
     </modules>
 
     <parent>
@@ -26,9 +28,10 @@
     </properties>
 
     <dependencies>
+        <!--曾经根据自动生成搞的没有web后缀,报JMX错误，就算加了TOMCAT也不能访问地址。坑 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
