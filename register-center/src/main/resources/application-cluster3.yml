@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: register-center
+  security:
+    user:
+      name: admin
+      password: 123
+server:
+  port: 9003
+eureka:
+  instance:
+    hostname: cluster3
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://admin:123@cluster1:9001/eureka/,http://admin:123@cluster2:9002/eureka/
